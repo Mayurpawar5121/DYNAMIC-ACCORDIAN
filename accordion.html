@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Accordion</title>
+  <style>
+     body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: azure;
+      background: url(accordianImage.jpeg)
+      no-repeat
+      center center/cover;
+    }
+    .mayur {
+      margin-top: 20px;
+    }
+    .accordion {
+      max-width: 400px;
+      margin: 20px auto;
+    }
+
+    .accordion-item {
+     
+      border: 1px solid #ccc;
+      margin-bottom: 5px;
+    }
+
+    .accordion-title,
+    .accordion-description {
+      padding: 10px;
+      cursor: pointer;
+    }
+    
+    header {
+      color: #0ddfd1;
+      text-align: center;
+      padding: 1em 0;
+    }
+
+    
+  </style>
+</head>
+<body>
+    <header>
+        <h1>ACCORDION </h1>
+    </header>
+
+    <div class="accordion" id="accordionContainer">
+    
+    </div>
+    <div class="mayur">
+    <button  onclick="addAccordionItem()">Add Title</button>
+    <button  onclick="addAccordionDescription()">Add Description</button>
+    </div>
+
+    <script>
+        function addAccordionItem() {
+            const accordionContainer = document.getElementById('accordionContainer');
+
+            const accordionItem = document.createElement('div');
+            accordionItem.className = 'accordion-item';
+
+            const accordionTitle = document.createElement('div');
+            accordionTitle.className = 'accordion-title';
+            accordionTitle.textContent = "JAVA SCRIPT";
+
+            accordionTitle.addEventListener('click', function() {
+            toggleAccordion(accordionDescription);
+            });
+
+            accordionItem.appendChild(accordionTitle);
+
+            accordionContainer.appendChild(accordionItem);
+        }
+
+        function addAccordionDescription() {
+            const accordionContainer = document.getElementById('accordionContainer');
+
+            const accordionItem = document.createElement('div');
+            accordionItem.className = 'accordion-item';
+
+            const accordionTitle = document.createElement('div');
+            accordionTitle.className = 'accordion-title';
+            accordionTitle.textContent = 'JAVA SCRIPT';
+
+            const accordionDescription = document.createElement('div');
+            accordionDescription.className = 'accordion-description';
+            accordionDescription.textContent = 'JavaScript is a scripting language that enables you to create dynamically updating content, control multimedia, animate images, and pretty much everything else. (Okay, not everything, but it is amazing what you can achieve with a few lines of JavaScript code.)';
+
+            accordionTitle.addEventListener('click', function() {
+            toggleAccordion(accordionDescription);
+            });
+
+            accordionItem.appendChild(accordionTitle);
+            accordionItem.appendChild(accordionDescription);
+
+            accordionContainer.appendChild(accordionItem);
+        }
+
+        function toggleAccordion(element) {
+            element.style.display = (element.style.display === 'none' || element.style.display === '') ? 'block' : 'none';
+        }
+    </script>
+
+</body>
+</html>
